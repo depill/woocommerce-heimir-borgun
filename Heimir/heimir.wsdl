@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Authorization" targetNamespace="http://Borgun/Heimir/pub/ws/Authorization" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://Borgun/Heimir/pub/ws/Authorization" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://Borgun/Heimir/pub/ws/Authorization" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://Borgun/Heimir/pub/ws/Authorization">
+          <xsd:complexType name="getSettlements">
+            <xsd:sequence>
+              <xsd:element name="settlementRequestXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getSettlementsResponse">
+            <xsd:sequence>
+              <xsd:element name="SettlementsXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getSettlementBatch">
+            <xsd:sequence>
+              <xsd:element name="SettlementRequestXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getSettlementBatchResponse">
+            <xsd:sequence>
+              <xsd:element name="SettlementBatchResponseXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="sendDetailData">
+            <xsd:sequence>
+              <xsd:element name="detailDataXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="sendDetailDataResponse">
+            <xsd:sequence>
+              <xsd:element name="detailDataResXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getVirtualCard">
+            <xsd:sequence>
+              <xsd:element name="virtualCardRequestXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getVirtualCardResponse">
+            <xsd:sequence>
+              <xsd:element name="virtualCardResponseXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getActionCodeTexts">
+            <xsd:sequence>
+              <xsd:element name="ActionCode" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getActionCodeTextsResponse">
+            <xsd:sequence>
+              <xsd:element name="ActionCodeTextsXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="newBatch">
+            <xsd:sequence>
+              <xsd:element name="newBatchReqXml" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="newBatchResponse">
+            <xsd:sequence>
+              <xsd:element name="newBatchResXml" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getFraudTransactions">
+            <xsd:sequence>
+              <xsd:element name="FraudRequestXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getFraudTransactionsResponse">
+            <xsd:sequence>
+              <xsd:element name="FraudTransactionResponseXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="cancelAuthorizationInput">
+            <xsd:sequence>
+              <xsd:element name="cancelAuthReqXml" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="cancelAuthorizationResponse">
+            <xsd:sequence>
+              <xsd:element name="cancelAuthResXml" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getSettlementTransactions">
+            <xsd:sequence>
+              <xsd:element name="SettlementTransactionRequestXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getSettlementTransactionsResponse">
+            <xsd:sequence>
+              <xsd:element name="SettlementTransactionsResponseXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getAuthorizationInput">
+            <xsd:sequence>
+              <xsd:element name="getAuthReqXml" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getAuthorizationOutput">
+            <xsd:sequence>
+              <xsd:element name="getAuthResXml" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getDisputedTransactions">
+            <xsd:sequence>
+              <xsd:element name="DisputedRequestXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getDisputedTransactionsResponse">
+            <xsd:sequence>
+              <xsd:element name="DisputedTransactionResponseXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getTransactionList">
+            <xsd:sequence>
+              <xsd:element name="transactionListReqXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getTransactionListResponse">
+            <xsd:sequence>
+              <xsd:element name="transactionListXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getSettlementChargeback">
+            <xsd:sequence>
+              <xsd:element name="SettlementChargebackRequestXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getSettlementChargebackResponse">
+            <xsd:sequence>
+              <xsd:element name="SettlementChargebackResponseXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getSettlementFee">
+            <xsd:sequence>
+              <xsd:element name="SettlementIsoFeeRequestXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getSettlementFeeResponse">
+            <xsd:sequence>
+              <xsd:element name="SettlementFeeResponseXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getSettlementSummary">
+            <xsd:sequence>
+              <xsd:element name="SettlementSummaryRequestXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getSettlementSummaryResponse">
+            <xsd:sequence>
+              <xsd:element name="SettlementSummaryResponseXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="setBlacklistedCard">
+            <xsd:sequence>
+              <xsd:element name="BlacklistCardRequestXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="setBlacklistedCardResponse">
+            <xsd:sequence>
+              <xsd:element name="BlacklistCardResponseXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="removeBlacklistedCard">
+            <xsd:sequence>
+              <xsd:element name="BlacklistCardRemovalRequestXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="removeBlacklistedCardResponse">
+            <xsd:sequence>
+              <xsd:element name="BlacklistCardRemovalResponseXML" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        			<xsd:element name="getSettlementChargeback" type="tns:getSettlementChargeback"/>
+			<xsd:element name="getSettlementChargebackResponse" type="tns:getSettlementChargebackResponse"/>
+			<xsd:element name="sendDetailData" type="tns:sendDetailData"/>
+			<xsd:element name="sendDetailDataResponse" type="tns:sendDetailDataResponse"/>
+			<xsd:element name="getActionCodeTexts" type="tns:getActionCodeTexts"/>
+			<xsd:element name="getActionCodeTextsResponse" type="tns:getActionCodeTextsResponse"/>
+			<xsd:element name="getSettlementTransactions" type="tns:getSettlementTransactions"/>
+			<xsd:element name="getSettlementTransactionsResponse" type="tns:getSettlementTransactionsResponse"/>
+			<xsd:element name="removeBlacklistedCard" type="tns:removeBlacklistedCard"/>
+			<xsd:element name="removeBlacklistedCardResponse" type="tns:removeBlacklistedCardResponse"/>
+			<xsd:element name="getSettlementBatch" type="tns:getSettlementBatch"/>
+			<xsd:element name="getSettlementBatchResponse" type="tns:getSettlementBatchResponse"/>
+			<xsd:element name="newBatch" type="tns:newBatch"/>
+			<xsd:element name="newBatchResponse" type="tns:newBatchResponse"/>
+			<xsd:element name="getTransactionList" type="tns:getTransactionList"/>
+			<xsd:element name="getTransactionListResponse" type="tns:getTransactionListResponse"/>
+			<xsd:element name="getSettlementSummary" type="tns:getSettlementSummary"/>
+			<xsd:element name="getSettlementSummaryResponse" type="tns:getSettlementSummaryResponse"/>
+			<xsd:element name="getVirtualCard" type="tns:getVirtualCard"/>
+			<xsd:element name="getVirtualCardResponse" type="tns:getVirtualCardResponse"/>
+			<xsd:element name="cancelAuthorizationInput" type="tns:cancelAuthorizationInput"/>
+			<xsd:element name="cancelAuthorizationResponse" type="tns:cancelAuthorizationResponse"/>
+			<xsd:element name="getAuthorizationInput" type="tns:getAuthorizationInput"/>
+			<xsd:element name="getAuthorizationOutput" type="tns:getAuthorizationOutput"/>
+			<xsd:element name="getDisputedTransactions" type="tns:getDisputedTransactions"/>
+			<xsd:element name="getDisputedTransactionsResponse" type="tns:getDisputedTransactionsResponse"/>
+			<xsd:element name="getSettlements" type="tns:getSettlements"/>
+			<xsd:element name="getSettlementsResponse" type="tns:getSettlementsResponse"/>
+			<xsd:element name="getFraudTransactions" type="tns:getFraudTransactions"/>
+			<xsd:element name="getFraudTransactionsResponse" type="tns:getFraudTransactionsResponse"/>
+			<xsd:element name="getSettlementFee" type="tns:getSettlementFee"/>
+			<xsd:element name="getSettlementFeeResponse" type="tns:getSettlementFeeResponse"/>
+			<xsd:element name="setBlacklistedCard" type="tns:setBlacklistedCard"/>
+			<xsd:element name="setBlacklistedCardResponse" type="tns:setBlacklistedCardResponse"/>
+	</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Authorization_PortType_getSettlementsResponse">
+    <wsdl:part name="parameters" element="tns:getSettlementsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_getDisputedTransactions">
+    <wsdl:part name="parameters" element="tns:getDisputedTransactions">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_getFraudTransactionsResponse">
+    <wsdl:part name="parameters" element="tns:getFraudTransactionsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_getSettlementTransactions">
+    <wsdl:part name="parameters" element="tns:getSettlementTransactions">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_newBatch">
+    <wsdl:part name="parameters" element="tns:newBatch">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_getSettlementBatchResponse">
+    <wsdl:part name="parameters" element="tns:getSettlementBatchResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_getSettlementFeeResponse">
+    <wsdl:part name="parameters" element="tns:getSettlementFeeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_getFraudTransactions">
+    <wsdl:part name="parameters" element="tns:getFraudTransactions">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_setBlacklistedCard">
+    <wsdl:part name="parameters" element="tns:setBlacklistedCard">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_getSettlements">
+    <wsdl:part name="parameters" element="tns:getSettlements">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_getTransactionListResponse">
+    <wsdl:part name="parameters" element="tns:getTransactionListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_cancelAuthorizationInput">
+    <wsdl:part name="parameters" element="tns:cancelAuthorizationInput">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_getDisputedTransactionsResponse">
+    <wsdl:part name="parameters" element="tns:getDisputedTransactionsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_getVirtualCardResponse">
+    <wsdl:part name="parameters" element="tns:getVirtualCardResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_getAuthorizationInput">
+    <wsdl:part name="parameters" element="tns:getAuthorizationInput">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_sendDetailData">
+    <wsdl:part name="parameters" element="tns:sendDetailData">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_getSettlementSummary">
+    <wsdl:part name="parameters" element="tns:getSettlementSummary">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_getSettlementBatch">
+    <wsdl:part name="parameters" element="tns:getSettlementBatch">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_getSettlementChargebackResponse">
+    <wsdl:part name="parameters" element="tns:getSettlementChargebackResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_sendDetailDataResponse">
+    <wsdl:part name="parameters" element="tns:sendDetailDataResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_getTransactionList">
+    <wsdl:part name="parameters" element="tns:getTransactionList">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_cancelAuthorizationResponse">
+    <wsdl:part name="parameters" element="tns:cancelAuthorizationResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_getAuthorizationOutput">
+    <wsdl:part name="parameters" element="tns:getAuthorizationOutput">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_getSettlementTransactionsResponse">
+    <wsdl:part name="parameters" element="tns:getSettlementTransactionsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_newBatchResponse">
+    <wsdl:part name="parameters" element="tns:newBatchResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_getActionCodeTexts">
+    <wsdl:part name="parameters" element="tns:getActionCodeTexts">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_getVirtualCard">
+    <wsdl:part name="parameters" element="tns:getVirtualCard">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_getSettlementChargeback">
+    <wsdl:part name="parameters" element="tns:getSettlementChargeback">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_getSettlementFee">
+    <wsdl:part name="parameters" element="tns:getSettlementFee">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_removeBlacklistedCard">
+    <wsdl:part name="parameters" element="tns:removeBlacklistedCard">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_removeBlacklistedCardResponse">
+    <wsdl:part name="parameters" element="tns:removeBlacklistedCardResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_getActionCodeTextsResponse">
+    <wsdl:part name="parameters" element="tns:getActionCodeTextsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_setBlacklistedCardResponse">
+    <wsdl:part name="parameters" element="tns:setBlacklistedCardResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Authorization_PortType_getSettlementSummaryResponse">
+    <wsdl:part name="parameters" element="tns:getSettlementSummaryResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Authorization_PortType">
+    <wsdl:operation name="getSettlementChargeback">
+      <wsdl:input message="tns:Authorization_PortType_getSettlementChargeback">
+    </wsdl:input>
+      <wsdl:output message="tns:Authorization_PortType_getSettlementChargebackResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendDetailData">
+      <wsdl:input message="tns:Authorization_PortType_sendDetailData">
+    </wsdl:input>
+      <wsdl:output message="tns:Authorization_PortType_sendDetailDataResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActionCodeTexts">
+      <wsdl:input message="tns:Authorization_PortType_getActionCodeTexts">
+    </wsdl:input>
+      <wsdl:output message="tns:Authorization_PortType_getActionCodeTextsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSettlementTransactions">
+      <wsdl:input message="tns:Authorization_PortType_getSettlementTransactions">
+    </wsdl:input>
+      <wsdl:output message="tns:Authorization_PortType_getSettlementTransactionsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeBlacklistedCard">
+      <wsdl:input message="tns:Authorization_PortType_removeBlacklistedCard">
+    </wsdl:input>
+      <wsdl:output message="tns:Authorization_PortType_removeBlacklistedCardResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSettlementBatch">
+      <wsdl:input message="tns:Authorization_PortType_getSettlementBatch">
+    </wsdl:input>
+      <wsdl:output message="tns:Authorization_PortType_getSettlementBatchResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newBatch">
+      <wsdl:input message="tns:Authorization_PortType_newBatch">
+    </wsdl:input>
+      <wsdl:output message="tns:Authorization_PortType_newBatchResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTransactionList">
+      <wsdl:input message="tns:Authorization_PortType_getTransactionList">
+    </wsdl:input>
+      <wsdl:output message="tns:Authorization_PortType_getTransactionListResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSettlementSummary">
+      <wsdl:input message="tns:Authorization_PortType_getSettlementSummary">
+    </wsdl:input>
+      <wsdl:output message="tns:Authorization_PortType_getSettlementSummaryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVirtualCard">
+      <wsdl:input message="tns:Authorization_PortType_getVirtualCard">
+    </wsdl:input>
+      <wsdl:output message="tns:Authorization_PortType_getVirtualCardResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelAuthorization">
+      <wsdl:input message="tns:Authorization_PortType_cancelAuthorizationInput">
+    </wsdl:input>
+      <wsdl:output message="tns:Authorization_PortType_cancelAuthorizationResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAuthorization">
+      <wsdl:input message="tns:Authorization_PortType_getAuthorizationInput">
+    </wsdl:input>
+      <wsdl:output message="tns:Authorization_PortType_getAuthorizationOutput">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDisputedTransactions">
+      <wsdl:input message="tns:Authorization_PortType_getDisputedTransactions">
+    </wsdl:input>
+      <wsdl:output message="tns:Authorization_PortType_getDisputedTransactionsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSettlements">
+      <wsdl:input message="tns:Authorization_PortType_getSettlements">
+    </wsdl:input>
+      <wsdl:output message="tns:Authorization_PortType_getSettlementsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFraudTransactions">
+      <wsdl:input message="tns:Authorization_PortType_getFraudTransactions">
+    </wsdl:input>
+      <wsdl:output message="tns:Authorization_PortType_getFraudTransactionsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSettlementFee">
+      <wsdl:input message="tns:Authorization_PortType_getSettlementFee">
+    </wsdl:input>
+      <wsdl:output message="tns:Authorization_PortType_getSettlementFeeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setBlacklistedCard">
+      <wsdl:input message="tns:Authorization_PortType_setBlacklistedCard">
+    </wsdl:input>
+      <wsdl:output message="tns:Authorization_PortType_setBlacklistedCardResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Heimir_pub_ws_Authorization_Binder" type="tns:Authorization_PortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getSettlementChargeback">
+      <soap:operation soapAction="Heimir_pub_ws_Authorization_Binder_getSettlementChargeback" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendDetailData">
+      <soap:operation soapAction="Heimir_pub_ws_Authorization_Binder_sendDetailData" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActionCodeTexts">
+      <soap:operation soapAction="Heimir_pub_ws_Authorization_Binder_getActionCodeTexts" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSettlementTransactions">
+      <soap:operation soapAction="Heimir_pub_ws_Authorization_Binder_getSettlementTransactions" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeBlacklistedCard">
+      <soap:operation soapAction="Heimir_pub_ws_Authorization_Binder_removeBlacklistedCard" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSettlementBatch">
+      <soap:operation soapAction="Heimir_pub_ws_Authorization_Binder_getSettlementBatch" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newBatch">
+      <soap:operation soapAction="Heimir_pub_ws_Authorization_Binder_newBatch" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTransactionList">
+      <soap:operation soapAction="Heimir_pub_ws_Authorization_Binder_getTransactionList" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSettlementSummary">
+      <soap:operation soapAction="Heimir_pub_ws_Authorization_Binder_getSettlementSummary" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVirtualCard">
+      <soap:operation soapAction="Heimir_pub_ws_Authorization_Binder_getVirtualCard" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelAuthorization">
+      <soap:operation soapAction="Heimir_pub_ws_Authorization_Binder_cancelAuthorization" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAuthorization">
+      <soap:operation soapAction="Heimir_pub_ws_Authorization_Binder_getAuthorization" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDisputedTransactions">
+      <soap:operation soapAction="Heimir_pub_ws_Authorization_Binder_getDisputedTransactions" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSettlements">
+      <soap:operation soapAction="Heimir_pub_ws_Authorization_Binder_getSettlements" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFraudTransactions">
+      <soap:operation soapAction="Heimir_pub_ws_Authorization_Binder_getFraudTransactions" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSettlementFee">
+      <soap:operation soapAction="Heimir_pub_ws_Authorization_Binder_getSettlementFee" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setBlacklistedCard">
+      <soap:operation soapAction="Heimir_pub_ws_Authorization_Binder_setBlacklistedCard" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Authorization">
+    <wsdl:port name="Heimir_pub_ws_Authorization_Port" binding="tns:Heimir_pub_ws_Authorization_Binder">
+      <soap:address location="http://WM8TEST02.europay.is:5555/ws/Heimir.pub.ws:Authorization/Heimir_pub_ws_Authorization_Port"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
