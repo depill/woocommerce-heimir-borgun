@@ -3,7 +3,7 @@
   Plugin Name: Borgun Payment gateway ( Heimir )
   Plugin URI: http://github.com/depill/woocommerce-heimir-borgun
   Description: Allow you to use Borgun, Heimir API for credit card payments.
-  Version: 0.0.1
+  Version: 0.0.3
   Author: David Fannar Gunnarsson
   Author URI: http://www.icelandr.com
   TwoCheckout plugin used as a base template
