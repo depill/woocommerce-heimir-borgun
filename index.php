@@ -232,12 +232,13 @@ function woocommerce_heimir(){
                 );
             }
             elseif($actioncode > 99 && $actioncode < 200) {
-                $woocommerce->add_error('Payment error: Payment denied', 'woothemes');
+                wc_add_notice( 'Payment error: Payment denied', $notice_type = 'error' );
+                $woocommerce->add_error(, 'woothemes');
                 $order->add_order_note('Denied Borgun / ActionCode ' . $charge->ActionCode);
 
             }            
             elseif($actioncode > 200) {
-                $woocommerce->add_error('Payment error: Invalid credit card', 'woothemes');
+                wc_add_notice( 'Payment error: Invalid credit card', $notice_type = 'error' );
                 $order->add_order_note('Take card / ActionCode ' . $charge->ActionCode);
             }     
         }
